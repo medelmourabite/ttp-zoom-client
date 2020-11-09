@@ -54,6 +54,12 @@
       ZoomMtg.init({
         leaveUrl: meetingConfig.leaveUrl,
         webEndpoint: meetingConfig.webEndpoint,
+        isSupportAV: true, //optional,
+        isSupportChat: false, //optional,
+        isSupportQA: false, //optional,
+        isSupportCC: false, //optional,
+        screenShare: true, //optional,
+        sharingMode: 'both',
         success: function () {
           console.log(meetingConfig);
           console.log("signature", signature);
