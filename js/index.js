@@ -50,7 +50,6 @@
     ZoomMtg.preLoadWasm();
     ZoomMtg.prepareJssdk();
     function beginJoin(signature) {
-      debugger;
       ZoomMtg.init({
         leaveUrl: meetingConfig.leaveUrl,
         webEndpoint: meetingConfig.webEndpoint,
@@ -92,19 +91,23 @@
       });
   
       ZoomMtg.inMeetingServiceListener('onUserJoin', function (data) {
-        console.log('inMeetingServiceListener onUserJoin', data);
+        console.log('inMeetingServiceListener onUserJoin', "*", data);
+        parent.postMessage({source: "FROM_ZOOM_CLIENT", data}, "*");
       });
   
       ZoomMtg.inMeetingServiceListener('onUserLeave', function (data) {
-        console.log('inMeetingServiceListener onUserLeave', data);
+        console.log('inMeetingServiceListener onUserLeave', "*", data);
+        parent.postMessage({source: "FROM_ZOOM_CLIENT", data}, "*");
       });
   
       ZoomMtg.inMeetingServiceListener('onUserIsInWaitingRoom', function (data) {
         console.log('inMeetingServiceListener onUserIsInWaitingRoom', data);
+        parent.postMessage({source: "FROM_ZOOM_CLIENT", data}, '*');
       });
   
       ZoomMtg.inMeetingServiceListener('onMeetingStatus', function (data) {
         console.log('inMeetingServiceListener onMeetingStatus', data);
+        parent.postMessage({source: "FROM_ZOOM_CLIENT", data}, '*');
       });
     }
   
