@@ -59,6 +59,9 @@
         isSupportCC: false, //optional,
         screenShare: true, //optional,
         sharingMode: 'both',
+        disableInvite: true, //optional
+        disableRecord: true, //optional
+        audioPanelAlwaysOpen: false,
         success: function () {
           console.log(meetingConfig);
           console.log("signature", signature);
