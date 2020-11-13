@@ -24,7 +24,6 @@
       })(),
       passWord: tmpArgs.pwd,
       leaveUrl: "/index.html",
-      role: parseInt(tmpArgs.role, 10),
       userEmail: (function () {
         try {
           return testTool.b64DecodeUnicode(tmpArgs.email);
@@ -34,7 +33,6 @@
       })(),
       lang: tmpArgs.lang,
       signature: tmpArgs.signature || "",
-      china: tmpArgs.china === "1",
     };
   
     // a tool use debug mobile device
@@ -42,11 +40,28 @@
       vConsole = new VConsole();
     }
     console.log(JSON.stringify(ZoomMtg.checkSystemRequirements()));
+
+    /*
+    function addcss(css){
+      var head = document.getElementsByTagName('head')[0];
+      var s = document.createElement('style');
+      s.setAttribute('type', 'text/css');
+      if (s.styleSheet) {   // IE
+          s.styleSheet.cssText = css;
+      } else {                // the world
+          s.appendChild(document.createTextNode(css));
+      }
+      head.appendChild(s);
+   }
+
+    if(meetingConfig.type === "DEMO") {
+      addcss(".send-video-container {display: none;}");
+    }
+    */
   
     // it's option if you want to change the WebSDK dependency link resources. setZoomJSLib must be run at first
     // ZoomMtg.setZoomJSLib("https://source.zoom.us/1.8.1/lib", "/av"); // CDN version defaul
-    if (meetingConfig.china)
-      ZoomMtg.setZoomJSLib("https://jssdk.zoomus.cn/1.8.1/lib", "/av"); // china cdn option
+
     ZoomMtg.preLoadWasm();
     ZoomMtg.prepareJssdk();
     function beginJoin(signature) {
@@ -60,7 +75,7 @@
         screenShare: true, //optional,
         sharingMode: 'both',
         disableInvite: true, //optional
-        disableRecord: true, //optional
+        disableRecord: false, //optional
         audioPanelAlwaysOpen: false,
         success: function () {
           console.log(meetingConfig);
@@ -84,12 +99,12 @@
               });
             },
             error: function (res) {
-              console.log(res);
+              console.error(res);
             },
           });
         },
         error: function (res) {
-          console.log(res);
+          console.error(res);
         },
       });
   
