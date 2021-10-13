@@ -60,6 +60,7 @@ function websdkready() {
       webEndpoint: meetingConfig.webEndpoint,
       disableCORP: !window.crossOriginIsolated, // default true
       // disablePreview: false, // default false
+      isSupportChat: false,
       meetingInfo: [ 'topic', 'host', 'mn', 'pwd', 'telPwd', 'participant', 'dc', 'enctype', 'report' ],
       success: function () {
         console.log(meetingConfig);
