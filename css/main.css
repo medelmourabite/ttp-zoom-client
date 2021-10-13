@@ -4,3 +4,25 @@
 .participant-scrollbar {
     padding-right: 2rem !important;
 }
+.full-screen-widget {
+    display: none !important;
+}
+.participant-scrollbar {
+    padding-right: 2rem !important;
+}
+.pop-panel__panel {
+    display: none; 
+}
+span.sharer-client-sharing-canvas-container {
+    position: absolute;
+    position: absolute;
+    left: 50px;
+    top: 100px;
+    width: 410px;
+    height: 230px;
+}
+canvas#sharer-client-sharing-canvas {
+    width: 400px;
+    height: 220px;
+    margin: auto;
+}

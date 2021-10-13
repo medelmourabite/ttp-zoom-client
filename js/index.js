@@ -60,17 +60,7 @@ function websdkready() {
       webEndpoint: meetingConfig.webEndpoint,
       disableCORP: !window.crossOriginIsolated, // default true
       // disablePreview: false, // default false
-      meetingInfo: [ // optional
-        'topic',
-        'host',
-        'mn',
-        'pwd',
-        'telPwd',
-        'participant',
-        'dc',
-        'enctype',
-        'report'
-      ],
+      meetingInfo: [ 'topic', 'host', 'mn', 'pwd', 'telPwd', 'participant', 'dc', 'enctype', 'report' ],
       success: function () {
         console.log(meetingConfig);
         console.log("signature", signature);
